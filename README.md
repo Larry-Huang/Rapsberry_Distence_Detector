@@ -1,11 +1,11 @@
-### 樹莓派：
-1.	作業系統
-2.	超音波模組
+### Raspberry：
+1.	os
+2.  Use Ultrasonic module and detect distence
 
-### 控制程式
-1.	取得機台運作狀態
-2.	用戶端介面及輸入相關資料
-3.	回寫資料庫及記錄Log
+### Control
+1.	get machine working status
+2.	use python tkinter to user interface
+3.	transfers data to the database
 
 
 
