@@ -5,6 +5,7 @@ from tkinter import *
 import threading,os,time,queue
 from backend import Distancer
 from tkinter import messagebox
+import datetime
 
 distancer = Distancer(moinitor_pin= 26,trigger_pin= 23,echo_pin= 24)
 class detectWindow():
@@ -46,9 +47,9 @@ class detectWindow():
         #MNG_970067
         #2
         #093173
-        self.e1.insert(END, "POM2FA08")
-        self.e2.insert(END, "MNG_970067")
-        self.e3.insert(END, "093173")
+        self.e1.insert(END, "POM2")
+        self.e2.insert(END, "MNG_")
+        self.e3.insert(END, "")
         self.e4.insert(END, "molding")
         self.e5.insert(END, "2")
         self.list1 = Listbox(window, height=20,width=60)
@@ -118,6 +119,12 @@ class detectWindow():
     def end_command(self):
         distancer.stop_work()
         self.stop_report_flag = True
+    def check_time(self):
+        while True:
+            if (datetime.datetime.now().hour > 17):
+               distancer.stop_work()
+               self.stop_report_flag = True
+            time.sleep(60) 
     def callKeyboard(self):
         added_thread = threading.Thread(target=self.keyboard)
         added_thread.start()   
